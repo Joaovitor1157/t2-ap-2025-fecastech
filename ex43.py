@@ -18,9 +18,10 @@ for linha in cardapio:
     print("{:<18}{:<9}{:<9}".format(*linha).replace("." , ","))
 cod = int(input("Digite o codigo do alimento: "))
 while True:
+    d = []
+    j = 0
     for i in range(1 , 7):
-        d = []
-        j = 0
+
         if cod == cardapio [i] [1]:
             quant = int(input("Digite a quantidade de %s: " %cardapio[i] [0]))
             valor_final = quant*cardapio[i] [2]
@@ -33,18 +34,14 @@ while True:
             break
         else:
             j+=1
-        if j == 6:
-            print("Codigo não cadastrado")
-            break
+    if j == 6:
+        print("Codigo não cadastrado")
+    
     resp = (input("Mais alguma coisa? "))
     if resp == "não":
         break
     else:
         cod = int(resp)
-
-    if j == 6:
-        print("Codigo não cadastrado")
-        break
     
 for linha in servir:
     print("{:<14}{:<18}{:<9}{:<9}{:<9}".format(*linha).replace("." , ","))
